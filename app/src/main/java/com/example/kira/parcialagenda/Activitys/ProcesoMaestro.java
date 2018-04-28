@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.example.kira.parcialagenda.Adapters.ListaActividadesAdapter;
 import com.example.kira.parcialagenda.Clases.Actividad;
+import com.example.kira.parcialagenda.Clases.Persona;
 import com.example.kira.parcialagenda.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,11 +26,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProcesoMaestro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String UID;
+    public static String NOMBRE_USUARIO;
+    public static String key;
 
     private FloatingActionButton fab;
 
@@ -84,10 +91,11 @@ public class ProcesoMaestro extends AppCompatActivity
             }
         });
         databaseReference.addChildEventListener(new ChildEventListener() {
+
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Actividad actividad = dataSnapshot.getValue(Actividad.class);
-                adapter.addComentario(actividad);
+                adapter.addComentario(actividad, dataSnapshot.getKey());
             }
 
             @Override
@@ -117,13 +125,13 @@ public class ProcesoMaestro extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -177,7 +185,7 @@ public class ProcesoMaestro extends AppCompatActivity
             finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

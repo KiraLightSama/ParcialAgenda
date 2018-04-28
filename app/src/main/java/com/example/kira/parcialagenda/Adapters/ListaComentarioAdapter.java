@@ -1,5 +1,6 @@
 package com.example.kira.parcialagenda.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ public class ListaComentarioAdapter extends RecyclerView.Adapter<HolderComentari
 
         Long codigoHora = comentarioList.get(position).getHora();
         Date d = new Date(codigoHora);
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
 
         holder.getTxtHora().setText(sdf.format(d));
 
