@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1083136234809",
+    "firebase_url": "https://parcialagenda.firebaseio.com",
+    "project_id": "parcialagenda",
+    "storage_bucket": "parcialagenda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083136234809:android:5bd9c4c0c688818b",
+        "android_client_info": {
+          "package_name": "com.example.kira.parcialagenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083136234809-16je0hu7k3s4rrol38ltinheqgu7tn7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kira.parcialagenda",
+            "certificate_hash": "619eaae67d2bf4c382007230d7487ac77cde9a62"
+          }
+        },
+        {
+          "client_id": "1083136234809-e2f1l40f7m0d1j1lftcu0po9mji52d4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjUNgGotUwNIvrZD82p-CgrlzuOY-j8IA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083136234809-e2f1l40f7m0d1j1lftcu0po9mji52d4c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

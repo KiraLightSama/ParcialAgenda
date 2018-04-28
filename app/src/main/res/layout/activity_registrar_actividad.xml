@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.RegistrarActividad"
+    android:orientation="vertical"
+    android:padding="10sp">
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titulo">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/ar_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout_contenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contenido">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/ar_contenido"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:inputType="textImeMultiLine" />
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ar_boton_cancelar"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/accion_cancelar" />
+
+        <Button
+            android:id="@+id/ar_boton_aceptar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/accion_aceptar"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>
