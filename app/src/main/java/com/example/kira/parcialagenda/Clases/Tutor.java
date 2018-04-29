@@ -3,16 +3,16 @@ package com.example.kira.parcialagenda.Clases;
 public class Tutor {
     private String nombre_completo;
     private String correo;
-    private String password;
+    private String telefono;
     private Alumno hijo;
 
     public Tutor() {
     }
 
-    public Tutor(String nombre_completo, String correo, String password, Alumno hijo) {
+    public Tutor(String nombre_completo, String correo, String telefono, Alumno hijo) {
         this.nombre_completo = nombre_completo;
         this.correo = correo;
-        this.password = password;
+        this.telefono = telefono;
         this.hijo = hijo;
     }
 
@@ -32,12 +32,12 @@ public class Tutor {
         this.correo = correo;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public Alumno getHijo() {

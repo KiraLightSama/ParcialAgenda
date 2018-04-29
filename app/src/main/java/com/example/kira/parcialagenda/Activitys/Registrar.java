@@ -37,12 +37,14 @@ public class Registrar extends AppCompatActivity {
     private TextInputLayout tilCorreo;
     private TextInputLayout tillPassword;
     private TextInputLayout tillVerificar;
+    private TextInputLayout tillColegio;
 
     private EditText campoNombre;
     private EditText campoTelefono;
     private EditText campoCorreo;
     private EditText campoPassword;
     private EditText campoVerificar;
+    private EditText campoColegio;
 
     private Button botonAceptar;
     private Button botonCancelar;
@@ -66,6 +68,7 @@ public class Registrar extends AppCompatActivity {
         tilCorreo = findViewById(R.id.til_correo);
         tillPassword = findViewById(R.id.til_password);
         tillVerificar = findViewById(R.id.til_verificar);
+        tillColegio = findViewById(R.id.til_colegio);
 
         // Referencia Edits
         campoNombre = findViewById(R.id.campo_nombre);
@@ -73,6 +76,7 @@ public class Registrar extends AppCompatActivity {
         campoCorreo = findViewById(R.id.campo_correo);
         campoPassword = findViewById(R.id.campo_password);
         campoVerificar = findViewById(R.id.campo_verificar);
+        campoColegio = findViewById(R.id.campo_colegio);
 
         // Referencias Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -112,6 +116,7 @@ public class Registrar extends AppCompatActivity {
             final String correo = campoCorreo.getText().toString();
             final String numero = campoTelefono.getText().toString();
             final String contraseña = campoPassword.getText().toString();
+            final String colegio = campoColegio.getText().toString();
 
             mAuth.createUserWithEmailAndPassword(correo, contraseña).addOnCompleteListener(Registrar.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -129,6 +134,7 @@ public class Registrar extends AppCompatActivity {
 
                         Curso curso = new Curso();
                         curso.setNombre(nombreCurso);
+                        curso.setColegio(colegio);
 
                         databaseReference = database.getReference("Profesores/"+currentUser.getUid()+"/Curso");
                         databaseReference.setValue(curso);

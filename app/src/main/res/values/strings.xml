@@ -2,11 +2,11 @@
     <string name="app_name">ParcialAgenda</string>
     <string name="accion_aceptar">aceptar</string>
     <string name="accion_cancelar">cancelar</string>
-    <string name="hint_correo">correo</string>
-    <string name="hint_telefono">telefono</string>
-    <string name="hint_nombre">nombre</string>
-    <string name="pass">password</string>
-    <string name="ver">verificar password</string>
+    <string name="hint_correo">CORREO</string>
+    <string name="hint_telefono">TELEFONO</string>
+    <string name="hint_nombre">NOMBRE COMPLETO</string>
+    <string name="pass">PASSWORD</string>
+    <string name="ver">VERIFICAR PASSWORD</string>
     <string name="title_activity_procesos">ProcesosActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -15,4 +15,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_proceso_maestro">ProcesoMaestro</string>
+    <string name="colegio">NOMBRE COLEGIO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

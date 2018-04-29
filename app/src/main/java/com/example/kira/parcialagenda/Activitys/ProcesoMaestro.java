@@ -2,9 +2,9 @@ package com.example.kira.parcialagenda.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,39 +15,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.kira.parcialagenda.Adapters.ListaActividadesAdapter;
-import com.example.kira.parcialagenda.Clases.Actividad;
-import com.example.kira.parcialagenda.Clases.Persona;
+import com.example.kira.parcialagenda.Agenda;
+import com.example.kira.parcialagenda.Chat;
 import com.example.kira.parcialagenda.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProcesoMaestro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static String UID;
+    /*public static String UID;
     public static String NOMBRE_USUARIO;
-    public static String key;
-
-    private FloatingActionButton fab;
 
     private ListaActividadesAdapter adapter;
     private RecyclerView rvListaActividad;
 
-    private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
-    private FirebaseAuth mAuth;
-    FirebaseUser currentUser;
+    FirebaseUser currentUser;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +40,7 @@ public class ProcesoMaestro extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mAuth = FirebaseAuth.getInstance();
+        /*FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         rvListaActividad = findViewById(R.id.rvListaActividades);
 
@@ -64,8 +48,9 @@ public class ProcesoMaestro extends AppCompatActivity
         LinearLayoutManager l = new LinearLayoutManager(this);
         rvListaActividad.setLayoutManager(l);
         rvListaActividad.setAdapter(adapter);
-
-        fab = findViewById(R.id.fab);
+*/
+        /*
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +60,15 @@ public class ProcesoMaestro extends AppCompatActivity
                 finish();
             }
         });
-
+*/
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.contenedor, new Agenda()).commit();
+/*
         currentUser = mAuth.getCurrentUser();
 
         if (currentUser != null) {
             UID = currentUser.getUid();
-            database = FirebaseDatabase.getInstance();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
             databaseReference = database.getReference("Profesores/" + ProcesoMaestro.UID + "/Curso" + "/Activiades");
         }
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
@@ -118,7 +106,7 @@ public class ProcesoMaestro extends AppCompatActivity
 
             }
         });
-
+*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -163,18 +151,18 @@ public class ProcesoMaestro extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        if (id == R.id.lista_alumnos) {
+            startActivity(new Intent(ProcesoMaestro.this, RegistrarAlumno.class));
+            finish();
+        } else if (id == R.id.nav_agenda) {
+            fragmentManager.beginTransaction().replace(R.id.contenedor, new Agenda()).commit();
+        } else if (id == R.id.nav_chat) {
+            fragmentManager.beginTransaction().replace(R.id.contenedor, new Chat()).commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -189,7 +177,7 @@ public class ProcesoMaestro extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private void setScrollBar (){
+    /*private void setScrollBar (){
         rvListaActividad.scrollToPosition(adapter.getItemCount()-1);
-    }
+    }*/
 }

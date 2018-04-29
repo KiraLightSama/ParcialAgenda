@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.kira.parcialagenda.Activitys.ProcesoMaestro;
+import com.example.kira.parcialagenda.Agenda;
 import com.example.kira.parcialagenda.Clases.ComentarioEnviar;
 import com.example.kira.parcialagenda.Clases.ComentarioRecibir;
 import com.example.kira.parcialagenda.R;
@@ -77,7 +78,7 @@ public class HolderActividad extends RecyclerView.ViewHolder{
     private DatabaseReference databaseReference;
 
     private ListaComentarioAdapter adapter;
-    private final static String NOMBRE_USUARIO = ProcesoMaestro.NOMBRE_USUARIO;
+    private final static String NOMBRE_USUARIO = Agenda.NOMBRE_USUARIO;
 
     public void setOnclickListener(String keys, Context c){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -88,7 +89,7 @@ public class HolderActividad extends RecyclerView.ViewHolder{
         getRvComentarios().setLayoutManager(l);
         getRvComentarios().setAdapter(adapter);
 
-        databaseReference = database.getReference("Profesores/" + ProcesoMaestro.UID + "/Curso/Activiades/"+ keys +"/Comentarios");
+        databaseReference = database.getReference("Profesores/" + Agenda.UID + "/Curso/Activiades/"+ keys +"/Comentarios");
         imSendComentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -2,7 +2,6 @@ package com.example.kira.parcialagenda.Clases;
 
 public class Alumno {
     private String nombre_completo;
-    private Tutor padre;
 
     public Alumno() {
     }
