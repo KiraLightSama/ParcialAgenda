@@ -84,7 +84,7 @@ public class Agenda extends Fragment {
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                //agregar las funciones correspondientes aca
             }
 
             @Override
