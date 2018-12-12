@@ -23,6 +23,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Agenda extends Fragment {
+
+    //este codigo es nuevo
+
     public static String UID;
     public static String NOMBRE_USUARIO;
 
