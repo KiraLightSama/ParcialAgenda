@@ -84,8 +84,13 @@ public class Agenda extends Fragment {
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                //agregar las funciones correspondientes aca
-                //algo
+                adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                    @Override
+                    public void onItemRangeInserted(int positionStart, int itemCount) {
+                        super.onItemRangeInserted(positionStart, itemCount);
+                        setScrollBar();
+                    }
+                });
             }
 
             @Override
